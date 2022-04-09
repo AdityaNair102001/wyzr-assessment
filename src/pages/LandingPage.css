@@ -1,0 +1,39 @@
+.landingpage-parent {
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.logo {
+  width: 100%;
+}
+
+.logo-holder {
+  width: 100vw;
+}
+
+/* .login-holder {
+  width: 50vw;
+} */
+
+@media (min-width: 40em) {
+  .logo {
+    width: 100%;
+  }
+
+  .logo-holder {
+    width: 50vw;
+  }
+
+  .login-holder {
+    width: 50vw;
+  }
+
+  .landingpage-parent {
+    display: flex;
+    min-height: 100vh;
+    background-color: aliceblue;
+    /* justify-content: space-around; */
+    /* flex-basis: 0; */
+    flex-wrap: wrap;
+  }
+}
