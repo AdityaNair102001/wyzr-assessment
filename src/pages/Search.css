@@ -1,0 +1,35 @@
+.searchpage-title {
+  width: fit-content;
+  margin: auto;
+  margin-top: 20vh;
+}
+
+.searchpage-input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin: 1rem;
+  min-width: 40vw;
+}
+
+.searchpage-search {
+  padding: 0.5rem 1rem;
+  border: 1px black solid;
+  background-color: transparent;
+  margin: 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 40em) {
+  .searchpage-title {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10vh;
+  }
+
+  .searchpage-search:hover {
+    color: white;
+    background-color: black;
+    transition: all 0.4s;
+  }
+}

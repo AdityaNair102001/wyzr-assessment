@@ -1,0 +1,28 @@
+.card-holder {
+  margin: 1rem;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 140px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 25%);
+  cursor: pointer;
+}
+
+.card-title {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-author {
+  margin: 0.3rem;
+}
+
+.card-published {
+  color: rgb(43, 41, 41);
+}
