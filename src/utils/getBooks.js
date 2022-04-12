@@ -1,5 +1,5 @@
 import axios from "axios";
-export async function getBooks(input, setBooks) {
+export default async function getBooks(input, setBooks) {
   let processedInput = input.trim().split(" ").join("+");
   try {
     console.log(

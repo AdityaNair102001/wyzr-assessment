@@ -11,6 +11,19 @@
   width: 100vw;
 }
 
+.login-button {
+  padding: 1rem;
+  border: 1px solid rgb(169, 202, 239);
+  background-color: rgb(235, 244, 254);
+  width: 30rem;
+  font-size: large;
+}
+
+.login-button:hover {
+  background-color: rgb(247, 247, 247);
+  color: red;
+}
+
 /* .login-holder {
   width: 50vw;
 } */
@@ -26,6 +39,7 @@
 
   .login-holder {
     width: 50vw;
+    margin-top: 20vh;
   }
 
   .landingpage-parent {
