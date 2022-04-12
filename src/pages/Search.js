@@ -3,7 +3,7 @@ import "./Search.css";
 import ResultsContainer from "../Components/ResultsContainer";
 import getBooks from "../utils/getBooks";
 import onChangeHandler from "../utils/onChangeHandler";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 function Search() {
