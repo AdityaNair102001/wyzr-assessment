@@ -52,7 +52,7 @@ function Search() {
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
-      navigate("/");
+      // navigate("/");
     }
   }
 

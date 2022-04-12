@@ -6,7 +6,7 @@ function Card({ book }) {
   const id = book.id;
 
   return (
-    <Link to={`/book/${id}`}>
+    <Link to={`/book/${id}`} target="_blank">
       <div className="card-holder">
         <div className="card-smallThumbnail">
           <img
