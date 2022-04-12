@@ -24,6 +24,7 @@ export default async function getAccessToken(code, navigate) {
       "access_token",
       JSON.stringify(response.data.access_token)
     );
+    localStorage.setItem("id_token", JSON);
 
     console.log(response.data);
   } catch (err) {

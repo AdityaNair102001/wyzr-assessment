@@ -19,11 +19,14 @@ function Search() {
 
   const navigate = useNavigate();
 
-  console.log(code);
+  let code = searchParams.get("code");
+  if (!code) {
+    localStorage.setItem("code", code);
+  } else {
+    navigate("/", { replace: true });
+  }
 
-  let code;
-
-  searchParams.get("code") ? (code = searchParams.get("code")) : navigate("/");
+  // searchParams.get("code") ? (code = searchParams.get("code")) : navigate("/");
 
   useEffect(() => {
     getAccessToken(code, navigate);
