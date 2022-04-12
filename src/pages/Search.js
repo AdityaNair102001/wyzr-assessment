@@ -52,7 +52,7 @@ function Search() {
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
-      // navigate("/");
+      navigate("/");
     }
   }
 
@@ -62,6 +62,20 @@ function Search() {
 
   return (
     <div className="searchpage-parent">
+      <div className="logout-div">
+        <button
+          onClick={() => {
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("id_token");
+
+            navigate("/");
+          }}
+          className="logout-button"
+        >
+          Logout
+        </button>
+      </div>
+
       <h1 className="searchpage-title">Search Books!</h1>
 
       <input
