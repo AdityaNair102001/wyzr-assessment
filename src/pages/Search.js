@@ -40,6 +40,13 @@ function Search() {
           },
         }
       );
+
+      localStorage.setItem("id_token", JSON.stringify(response.data.id_token));
+      localStorage.setItem(
+        "access_token",
+        JSON.stringify(response.data.access_token)
+      );
+
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
