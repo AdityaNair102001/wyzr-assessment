@@ -1,15 +1,16 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import Search from "./pages/Search";
+import { PrivateRoute } from "./PrivateRoute";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route exact path="/" element={<LandingPage />}></Route>
-        <Route path="/search" element={<Search />}></Route>
+
+        <Route path="/search" element={<PrivateRoute />}></Route>
       </Routes>
     </div>
   );
