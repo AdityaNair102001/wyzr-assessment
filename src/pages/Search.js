@@ -52,7 +52,7 @@ function Search() {
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
-      // navigate("/");
+      navigate("/");
     }
   }
 
@@ -68,7 +68,7 @@ function Search() {
             localStorage.removeItem("access_token");
             localStorage.removeItem("id_token");
 
-            navigate("/");
+            navigate("/", { replace: true });
           }}
           className="logout-button"
         >
