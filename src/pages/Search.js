@@ -52,7 +52,7 @@ function Search() {
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
-      navigate("/");
+      // navigate("/");
     }
   }
 
@@ -82,7 +82,7 @@ function Search() {
           Search
         </button>
       </div>
-      {books ? <ResultsContainer books={books} /> : <div>Loading</div>}
+      {books ? <ResultsContainer books={books} /> : <div></div>}
     </div>
   );
 }

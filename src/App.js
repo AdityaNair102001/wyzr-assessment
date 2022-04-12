@@ -3,6 +3,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Search from "./pages/Search";
+import BookDetail from "./pages/BookDetail";
+import { PrivateRoute } from "./PrivateRoute";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
 
         {/* <Route path="/search" element={<PrivateRoute />}></Route> */}
         <Route path="/search" element={<Search />}></Route>
+
+        <Route path="/book/:id" element={<BookDetail />}></Route>
       </Routes>
     </div>
   );
