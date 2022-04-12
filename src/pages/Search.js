@@ -30,9 +30,15 @@ function Search() {
     console.log(params);
     // axios.post("/foo", params);
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         "https://d1v4oztjof20qz.auth.ap-south-1.amazoncognito.com/oauth2/token",
-        params
+        params,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Basic dmY1MDY0bzVhbG8xNmtydmpkNG44M2QycDoxZGU5ZHE4bjU0b3IzMmo0aW1oMGx0c2RjOWtlaXNuc2E5NzN2bTFuamNxcGVhZm0xOXYw`,
+          },
+        }
       );
       console.log(response.data);
     } catch (err) {
