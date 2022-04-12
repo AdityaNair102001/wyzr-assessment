@@ -3,7 +3,7 @@ import "./Search.css";
 import ResultsContainer from "../Components/ResultsContainer";
 import getBooks from "../utils/getBooks";
 import onChangeHandler from "../utils/onChangeHandler";
-import { useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 function Search() {
@@ -13,6 +13,8 @@ function Search() {
   // const { code } = useParams();
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const navigate = useNavigate();
 
   let code = searchParams.get("code");
 
@@ -50,6 +52,7 @@ function Search() {
       console.log(response.data);
     } catch (err) {
       console.log(err.message);
+      navigate("/");
     }
   }
 

@@ -2,7 +2,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import { PrivateRoute } from "./PrivateRoute";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<LandingPage />}></Route>
 
-        <Route path="/search" element={<PrivateRoute />}></Route>
+        {/* <Route path="/search" element={<PrivateRoute />}></Route> */}
+        <Route path="/search" element={<Search />}></Route>
       </Routes>
     </div>
   );
