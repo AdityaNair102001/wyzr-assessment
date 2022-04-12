@@ -25,7 +25,7 @@ function BookDetail() {
   console.log("book id is", id);
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
+    if (!localStorage.getItem("access_token")) {
       navigate("/");
     }
 
