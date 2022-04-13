@@ -54,6 +54,6 @@ export default async function getAccessToken(
     console.log(response.data);
   } catch (err) {
     console.log(err.message);
-    navigate("/");
+    // navigate("/");
   }
 }
