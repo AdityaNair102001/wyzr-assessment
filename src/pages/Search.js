@@ -18,15 +18,16 @@ function Search() {
 
   // const [code, setCode] = useState(searchParams.get("code"));
 
-  let code = searchParams.get(code);
+  let code = searchParams.get("code");
+  console.log(code);
 
-  const { login, setLogin } = useContext(AuthContext);
+  // const { login, setLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (code) {
-      getAccessToken(code, navigate, setLogin, setUsername);
+      getAccessToken(code, navigate, setUsername);
     } else {
       if (!localStorage.getItem("access_token")) {
         navigate("/");

@@ -15,12 +15,7 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
-export default async function getAccessToken(
-  code,
-  navigate,
-  setLogin,
-  setUsername
-) {
+export default async function getAccessToken(code, navigate, setUsername) {
   const params = new URLSearchParams();
   params.append("client_id", "vf5064o5alo16krvjd4n83d2p");
   params.append("code", code);
