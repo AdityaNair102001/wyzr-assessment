@@ -1,4 +1,20 @@
 import axios from "axios";
+
+function parseJwt(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+
+  return JSON.parse(jsonPayload);
+}
+
 export default async function getAccessToken(code, navigate) {
   const params = new URLSearchParams();
   params.append("client_id", "vf5064o5alo16krvjd4n83d2p");
@@ -19,6 +35,8 @@ export default async function getAccessToken(code, navigate) {
       }
     );
 
+    const idObj = parseJwt(response.data.id_token);
+    console.log(idObj);
     localStorage.setItem("id_token", JSON.stringify(response.data.id_token));
     localStorage.setItem(
       "access_token",
@@ -29,6 +47,6 @@ export default async function getAccessToken(code, navigate) {
     console.log(response.data);
   } catch (err) {
     console.log(err.message);
-    navigate("/");
+    // navigate("/");
   }
 }

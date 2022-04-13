@@ -11,22 +11,11 @@ function Search() {
   const [input, setInput] = useState("");
   const [books, setBooks] = useState(null);
 
-  // const { code } = useParams();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [code, setCode] = useState(searchParams.get("code"));
 
   const navigate = useNavigate();
-
-  // let code = searchParams.get("code");
-  // if (!code) {
-  //   localStorage.setItem("code", code);
-  // } else {
-  //   navigate("/", { replace: true });
-  // }
-
-  // searchParams.get("code") ? (code = searchParams.get("code")) : navigate("/");
 
   useEffect(() => {
     getAccessToken(code, navigate);
