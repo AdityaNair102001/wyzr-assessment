@@ -49,6 +49,6 @@ export default async function getAccessToken(code, navigate, setUsername) {
     console.log(response.data);
   } catch (err) {
     console.log(err.message);
-    // navigate("/");
+    navigate("/");
   }
 }
