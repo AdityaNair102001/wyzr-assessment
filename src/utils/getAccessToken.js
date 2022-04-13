@@ -15,7 +15,12 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
-export default async function getAccessToken(code, navigate) {
+export default async function getAccessToken(
+  code,
+  navigate,
+  setLogin,
+  setUsername
+) {
   const params = new URLSearchParams();
   params.append("client_id", "vf5064o5alo16krvjd4n83d2p");
   params.append("code", code);
@@ -36,6 +41,8 @@ export default async function getAccessToken(code, navigate) {
     );
 
     const idObj = parseJwt(response.data.id_token);
+    setUsername(idObj.name);
+    // setLogin(true);
     console.log(idObj);
     localStorage.setItem("id_token", JSON.stringify(response.data.id_token));
     localStorage.setItem(
@@ -47,6 +54,6 @@ export default async function getAccessToken(code, navigate) {
     console.log(response.data);
   } catch (err) {
     console.log(err.message);
-    // navigate("/");
+    navigate("/");
   }
 }

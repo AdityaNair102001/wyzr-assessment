@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../AuthProvider";
 import "./Search.css";
 import ResultsContainer from "../Components/ResultsContainer";
 import getBooks from "../utils/getBooks";
@@ -13,12 +14,26 @@ function Search() {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [code, setCode] = useState(searchParams.get("code"));
+  const [username, setUsername] = useState(null);
+
+  // const [code, setCode] = useState(searchParams.get("code"));
+
+  let code = searchParams.get(code);
+
+  const { login, setLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAccessToken(code, navigate);
+    if (code) {
+      getAccessToken(code, navigate, setLogin, setUsername);
+    } else {
+      if (!localStorage.getItem("access_token")) {
+        navigate("/");
+      }
+    }
+
+    // getAccessToken(code, navigate, setLogin);
   }, []);
 
   return (
@@ -36,6 +51,8 @@ function Search() {
           Logout
         </button>
       </div>
+
+      {username ? <h1>{username}</h1> : <h2>Logging out</h2>}
 
       <h1 className="searchpage-title">Search Books!</h1>
 

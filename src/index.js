@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import { AuthContextProvider } from "./AuthProvider";
 
 const replaceHashPath = () => {
   const history = createBrowserHistory();
@@ -21,7 +22,9 @@ replaceHashPath();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
