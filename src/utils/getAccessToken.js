@@ -15,6 +15,26 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
+async function postUserToDB() {
+  try {
+    const response = await axios.post(
+      "https://stjbh47fui.execute-api.ap-south-1.amazonaws.com/deploy/users",
+      {
+        email_id: localStorage.getItem("email"),
+      },
+      {
+        headers: {
+          Authorization: localStorage.getItem("id_token"),
+        },
+      }
+    );
+    console.log(response.data);
+    if (response.data.success === true) {
+      console.log("user added to db");
+    }
+  } catch (err) {}
+}
+
 export default async function getAccessToken(code, navigate, setUsername) {
   const params = new URLSearchParams();
   params.append("client_id", "vf5064o5alo16krvjd4n83d2p");
@@ -44,8 +64,10 @@ export default async function getAccessToken(code, navigate, setUsername) {
       "access_token",
       JSON.stringify(response.data.access_token)
     );
+    localStorage.setItem("email", idObj.email);
 
     console.log(response.data);
+    postUserToDB();
   } catch (err) {
     console.log(err.message);
     navigate("/");
