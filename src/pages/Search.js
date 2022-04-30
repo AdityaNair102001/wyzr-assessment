@@ -54,7 +54,7 @@ function Search() {
         </button>
       </div>
 
-      {username ? <h1>{username}</h1> : <h2>Logging out</h2>}
+      {username ? <h1>{username}</h1> : <h2></h2>}
 
       <h1 className="searchpage-title">Search Books!</h1>
 
