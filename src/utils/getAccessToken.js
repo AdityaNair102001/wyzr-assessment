@@ -70,6 +70,6 @@ export default async function getAccessToken(code, navigate, setUsername) {
     postUserToDB();
   } catch (err) {
     console.log(err.message);
-    navigate("/");
+    // navigate("/");
   }
 }
