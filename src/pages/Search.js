@@ -7,6 +7,7 @@ import onChangeHandler from "../utils/onChangeHandler";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import getAccessToken from "../utils/getAccessToken";
+import { updateHistory } from "../utils/updateHistory";
 
 function Search() {
   const [input, setInput] = useState("");
@@ -36,24 +37,6 @@ function Search() {
 
     // getAccessToken(code, navigate, setLogin);
   }, []);
-
-  async function updateHistory(input) {
-    try {
-      const response = await axios.patch(
-        "https://stjbh47fui.execute-api.ap-south-1.amazonaws.com/deploy/users",
-        {
-          email_id: localStorage.getItem("email"),
-          searched_history: input,
-        }
-      );
-      console.log(response.data);
-      if (response.data.success == true) {
-        console.log("updated the history");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   return (
     <div className="searchpage-parent">
