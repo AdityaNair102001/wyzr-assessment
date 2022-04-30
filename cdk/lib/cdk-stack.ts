@@ -21,12 +21,12 @@ export class CdkStack extends Stack {
       websiteIndexDocument: "index.html",
     });
 
-    const src = new BucketDeployment(this, "DeployCRA", {
+    new BucketDeployment(this, "DeployCRA", {
       sources: [Source.asset("../build")],
       destinationBucket: bucket,
     });
 
-    const cf = new CloudFrontWebDistribution(this, "CDKWyzrDistribution", {
+    new CloudFrontWebDistribution(this, "CDKWyzrDistribution", {
       originConfigs: [
         {
           s3OriginSource: {
