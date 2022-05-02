@@ -1,6 +1,6 @@
 import { Stack, StackProps, aws_s3 as s3, SecretValue } from "aws-cdk-lib";
 import { CloudFrontWebDistribution } from "aws-cdk-lib/aws-cloudfront";
-import { BuildSpec, Project } from "aws-cdk-lib/aws-codebuild";
+import { BuildSpec, PipelineProject, Project } from "aws-cdk-lib/aws-codebuild";
 import { Artifact, Pipeline } from "aws-cdk-lib/aws-codepipeline";
 import {
   CodeBuildAction,
@@ -101,7 +101,7 @@ export class CdkStack extends Stack {
       ],
     });
 
-    const codebuild = new Project(this, "WyzrCodeBuild", {
+    const codebuild = new PipelineProject(this, "WyzrCodeBuild", {
       role,
       buildSpec: BuildSpec.fromSourceFilename("buildspec.yml"),
     });
