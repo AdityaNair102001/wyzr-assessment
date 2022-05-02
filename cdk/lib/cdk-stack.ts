@@ -62,7 +62,7 @@ export class CdkStack extends Stack {
     // });
 
     const pipeline = new Pipeline(this, "FrontendPipeline", {
-      pipelineName: "deploy-angular-application",
+      pipelineName: "wyzrcicdpipipeline",
     });
 
     // add Stages
